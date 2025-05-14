@@ -7,12 +7,12 @@ import (
 
 // Server提供所有HTTP请求
 type Server struct {
-	store  *db.Store
+	store  db.Store
 	router *gin.Engine
 }
 
 // NewServer creates a new Http server and setup routing.
-func NewServer(store *db.Store) *Server {
+func NewServer(store db.Store) *Server {
 	//创建服务器
 	server := &Server{store: store}
 	router := gin.Default()
