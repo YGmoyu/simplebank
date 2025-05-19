@@ -12,8 +12,9 @@ import (
 
 // 创建随机账户，保持测试独立性
 func createRandomAccount(t *testing.T) Account {
+	user := createRandomUser(t)
 	arg := CreateAccountParams{
-		Owner:    util.RandomOwner(), //生成随机数据
+		Owner:    user.Username, //生成随机数据
 		Balance:  util.RandomMoney(),
 		Currency: util.RandomCurrency(),
 	}
