@@ -5,11 +5,10 @@ import (
 	"github.com/techschool/simplebank/util"
 )
 
-var vaildCurrency validator.Func = func(fieldLevel validator.FieldLevel) bool {
+var validCurrency validator.Func = func(fieldLevel validator.FieldLevel) bool {
 	//获取字段值
 	if currency, ok := fieldLevel.Field().Interface().(string); ok {
 		return util.IsSupportedCurrency(currency)
 	}
 	return false
-
 }

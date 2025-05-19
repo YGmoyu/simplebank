@@ -21,8 +21,11 @@ func NewServer(store db.Store) *Server {
 
 	//自验证器
 	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
-		v.RegisterValidation("currency", vaildCurrency)
+		v.RegisterValidation("currency", validCurrency)
 	}
+
+	//创建用户
+	router.POST("/users", server.createUser)
 
 	//创建账户
 	router.POST("/accounts", server.createAccount)
